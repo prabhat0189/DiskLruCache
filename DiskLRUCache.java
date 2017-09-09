@@ -27,6 +27,8 @@ public class DiskLRUCache<K, T> {
 		
 		File cacheDir = new File(CACHE_DIR);
 		if(cacheDir.exists()) {
+			for (File c : cacheDir.listFiles())
+			      c.delete();
 			cacheDir.delete();
 		}
 		cacheDir.mkdirs();
